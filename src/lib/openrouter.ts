@@ -1,4 +1,3 @@
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 const MODEL = "openrouter/free";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -18,7 +17,7 @@ export async function paraphraseText(text: string): Promise<string> {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
       "HTTP-Referer": SITE_URL,
       "X-Title": SITE_NAME,
     },
@@ -86,7 +85,7 @@ export async function detectPlagiarism(
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${OPENROUTER_API_KEY}`,
+      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
       "HTTP-Referer": SITE_URL,
       "X-Title": SITE_NAME,
     },
